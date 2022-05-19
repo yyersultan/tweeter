@@ -1,0 +1,85 @@
+{
+  "tweets": [
+    {
+      "id": 1,
+      "_id": "627e3849de2889980c28af0d",
+      "text": "Irure consequat Lorem nisi id laborum officia occaecat non nisi aliqua commodo fugiat et elit. Ea anim laboris anim consectetur. Nostrud commodo labore ut elit id non occaecat officia eu enim eiusmod. Adipisicing cupidatat consequat labore Lorem magna. Quis deserunt esse tempor occaecat consectetur.",
+      "user": {
+        "fullName": "Schroeder Acosta",
+        "username": "hunt",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      }
+    },
+    {
+      "id": 2,
+      "_id": "627e384909aa129090eca18e",
+      "text": "Aute anim nostrud nisi non mollit consequat do ea ex ad et ex sunt. Qui ex ad cillum veniam culpa. In Lorem ex eiusmod magna id nostrud tempor do occaecat. Sint amet magna exercitation aliquip esse eu non adipisicing elit elit tempor. Adipisicing officia exercitation labore dolor cupidatat irure sunt ad pariatur qui cillum sunt.",
+      "user": {
+        "fullName": "Juliana Stuart",
+        "username": "jeannie",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    },
+    {
+      "_id": "n13i7k2ucmf",
+      "text": "hello man",
+      "user": {
+        "fullName": "Test User",
+        "username": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?12"
+      },
+      "id": 3
+    },
+    {
+      "_id": "32iojktmo6t",
+      "text": "welcome",
+      "user": {
+        "fullName": "Test User",
+        "username": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?12"
+      },
+      "id": 4
+    },
+    {
+      "_id": "bpgawr0753f",
+      "text": "where ",
+      "user": {
+        "fullName": "Test User",
+        "username": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?12"
+      },
+      "id": 5
+    }
+  ],
+  "tags": [
+    {
+      "name": "#unknown",
+      "count": 12345
+    },
+    {
+      "name": "#Ukrain",
+      "count": 235634
+    },
+    {
+      "name": "#Football",
+      "count": 23523
+    }
+  ],
+  "users": [
+    {
+      "fullName": "Yersultan Yerkinbek",
+      "username": "yyersultan",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+    },
+    {
+      "fullName": "Kaufman Boyer",
+      "username": "cline",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+    }
+  ],
+  "user": {
+    "fullName": "Yersultan Yerkinbek",
+    "username": "yyersultan",
+    "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+  }
+}

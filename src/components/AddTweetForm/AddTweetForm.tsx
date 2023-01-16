@@ -1,37 +1,17 @@
+import { ChangeEvent, FC, ReactElement, useState } from "react"
+
+import { useDispatch, useSelector } from "react-redux"
 import { ImageOutlined, SentimentSatisfiedAlt } from "@mui/icons-material"
-import { Avatar, Grid, Paper, Box, IconButton, CircularProgress, Button, TextField } from "@mui/material"
-import { styled } from "@mui/system"
-import { ChangeEvent, FC, useState } from "react"
-import { useDispatch } from "react-redux"
-import { addTweet, fetchAddTweet } from "../../store/ducks/tweets/actionCreators"
-import { fetchAddTweetRequest } from "../../store/ducks/tweets/saga"
+import { Avatar, Grid, Paper, Box, IconButton, CircularProgress, Button } from "@mui/material"
 
-const FormTextField = styled(TextField)(({ theme }) => ({
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      border: 0,
-      margin: 0,
-      padding: 0
-    },
-  }
-}))
-
-const TweetForm = {
-  marginBottom: 2, padding: '10px 15px', border: 0, borderRadius: 0,
-}
-const ActiveCircularProgress = styled(CircularProgress)(({ theme }) => ({
-  position: "absolute",
-  left: 0,
-  zIndex: 0,
-  '&	.MuiCircularProgress-circle': {
-    color: "#eee",
+import { fetchAddTweet } from "../../store/ducks/tweets/actionCreators"
+import { selectIsLoadingAddFormState } from "../../store/ducks/tweets/selectors"
+import { ActiveCircularProgress, FormTextField, TweetForm } from "./AddTweetFormStyles"
 
 
-  },
-
-}))
-export const AddTweetForm: FC = () => {
+export const AddTweetForm: FC = ():ReactElement => {
   const dispatch = useDispatch();
+  const isAddingFormLoading = useSelector(selectIsLoadingAddFormState);
   const [text, setText] = useState<string>("");
   const textLimitPercent = (text.length / 280) * 100;
 
@@ -44,6 +24,7 @@ export const AddTweetForm: FC = () => {
   }
 
   const textCount: number = 280 - text.length;
+
   return (
     <Paper sx={{ ...TweetForm }} variant="outlined">
       <Grid container mb={2} spacing={4}>
@@ -77,10 +58,11 @@ export const AddTweetForm: FC = () => {
                   <CircularProgress sx={{ zIndex: 100 }} color="primary" variant="determinate" value={textLimitPercent} thickness={4} />
                 </Box>}
               <Button
+
                 onClick={handleClickAddTweet}
                 sx={{ marginLeft: '10px' }}
                 variant="contained"
-                disabled={textLimitPercent >= 100}>
+                disabled={textLimitPercent >= 100 || isAddingFormLoading}>
                 Твитнуть
               </Button>
             </Box>

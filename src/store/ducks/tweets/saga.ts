@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 
-import { addTweet, FetchAddTweetActionInterface, setTweets, setTweetsLoadingState, TweetsActionTypes } from "./actionCreators";
+import { addTweet, FetchAddTweetActionInterface, setAddTweetsLoadingState, setTweets, setTweetsLoadingState, TweetsActionTypes } from "./actionCreators";
 import { TweetsApi } from '../../../services/api/tweetsApi';
-import { ITweet, LoadingState } from "./contracts/state";
+import { AddFormState, ITweet, LoadingState } from "./contracts/state";
 
 export function* fetchTweetsRequest(): any {
   try {
@@ -14,7 +14,7 @@ export function* fetchTweetsRequest(): any {
 }
 
 export function* fetchAddTweetRequest({ payload }: FetchAddTweetActionInterface): any {
-  console.log(payload);
+  yield put(setAddTweetsLoadingState(AddFormState.LOADING));
 
   try {
     const data: ITweet = {
@@ -26,11 +26,11 @@ export function* fetchAddTweetRequest({ payload }: FetchAddTweetActionInterface)
         avatarUrl: "https://source.unsplash.com/random/100x100?12"
       }
     }
-    yield call(TweetsApi.addTweet, data);
-
-    // yield put(addTweet(item));
+    const item = yield call(TweetsApi.addTweet, data);
+    yield put(addTweet(item));
+    yield put(setAddTweetsLoadingState(AddFormState.NEVER));
   } catch (e) {
-    yield put(setTweetsLoadingState(LoadingState.ERROR));
+    yield put(setAddTweetsLoadingState(AddFormState.ERROR));
   }
 }
 

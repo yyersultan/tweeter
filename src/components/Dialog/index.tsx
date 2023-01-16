@@ -1,4 +1,4 @@
-import { FC,ReactNode } from "react";
+import { FC } from "react";
 
 import {
   Dialog,
@@ -8,15 +8,11 @@ import {
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
-type DialogProps = {
-  open: boolean;
-  handleClose: () => void;
-  title: string,
-  children: ReactNode
-};
+import { DialogProps } from "./DialogProps";
 
-export const DialogContainer: FC<DialogProps> = ({ open, handleClose,title,children }) => {
-  if(!open) return null;
+
+export const DialogContainer: FC<DialogProps> = ({ open, handleClose, title, children }) => {
+  if (!open) return null;
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle sx={{ borderBottom: "1px solid #999" }}>
@@ -24,7 +20,7 @@ export const DialogContainer: FC<DialogProps> = ({ open, handleClose,title,child
           fontWeight={600}
           display="flex"
           alignItems="center"
-        > 
+        >
           <Close
             onClick={handleClose}
             sx={{ marginRight: "10px", cursor: "pointer", fontWeight: "600" }}

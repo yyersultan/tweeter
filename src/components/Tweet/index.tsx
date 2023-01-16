@@ -1,36 +1,17 @@
-import { FavoriteBorder, RepeatRounded, ChatBubbleOutline, Share } from "@mui/icons-material"
-import { Avatar, Paper, Typography, IconButton, Box } from "@mui/material"
-import { styled } from "@mui/system"
 import { FC, ReactElement } from "react"
+
 import { Link } from "react-router-dom"
+import { FavoriteBorder, RepeatRounded, ChatBubbleOutline, Share } from "@mui/icons-material"
+import { Avatar, Typography, IconButton, Box } from "@mui/material"
 
-const tweetContent = {
-  borderTop: 0, borderLeft: 0, borderRight: 0, padding: '10px 15px',
-  cursor: 'pointer',
-  display: 'flex',
-  '&:hover': {
-    backgroundColor: 'rgb(245,248,250)'
-  }
-}
+import { TweetProps } from "./TweetProps";
+import { MyPaper } from "./TweetStyles"
 
-interface TweetProps {
-  _id: string,
-  text: string,
-  user: {
-    avatarUrl: string,
-    fullName: string,
-    username: string
-  },
-}
-const MyPaper = styled(Paper)(({ theme }) => ({
-  border: "0",
 
-  borderBottom: "1px solid #eee",
-}))
 export const Tweet: FC<TweetProps> = ({ _id, text, user }): ReactElement => {
   return (
     <Link to={`/home/tweet/${_id}`} style={{ textDecoration: "none" }}>
-      <MyPaper variant="outlined" sx={{ ...tweetContent }}>
+      <MyPaper variant="outlined" >
         <Avatar sx={{ width: 46, height: 46, marginRight: 1 }} src={user.avatarUrl} />
         <Box>
           <Typography >
